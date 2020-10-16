@@ -13,6 +13,14 @@
               Build
             </router-link>
           </li>
+          <li class="nav-item cart">
+            <router-link active-class="router-link-active" class="nav-link" :to="{ name: 'Cart' }" exact>
+              Cart
+            </router-link>
+            <div class="cart-items">
+              {{ cart.length }}
+            </div>
+          </li>
         </ul>
       </nav>
     </header>
@@ -29,8 +37,13 @@
 
 <script>
 
+import { mapState } from 'vuex';
+
 export default {
   name: 'App',
+  computed: {
+    ...mapState('robots', ['cart']),
+  },
 };
 </script>
 

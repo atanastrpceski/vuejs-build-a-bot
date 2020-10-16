@@ -31,7 +31,7 @@ export default {
       type: String,
       required: true,
       validator(value) {
-        return ['left', 'right', 'top', 'bottom'].includes(value);
+        return ['top', 'left', 'center', 'right', 'bottom'].includes(value);
       },
     },
   },

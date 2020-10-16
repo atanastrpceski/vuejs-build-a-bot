@@ -11,7 +11,7 @@
 
 <script>
 
-import availableParts from '../data/parts';
+import getPartsMixin from './get-parts-mixin';
 
 export default {
   props: {
@@ -24,10 +24,11 @@ export default {
     },
   },
   name: 'PartInfo',
+  mixins: [getPartsMixin],
   computed: {
     part() {
       const { partType, id } = this;
-      return availableParts[partType].find((part) => part.id === +id);
+      return this.parts.[partType].find((part) => part.id === +id);
     },
   },
 };
