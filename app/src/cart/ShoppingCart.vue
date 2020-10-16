@@ -18,12 +18,13 @@
             {{robot.head.title}}
           </td>
           <td class="cost">
-            {{robot.cost}}
+            {{robot.cost | currency('$')}}
           </td>
         </tr>
       </tbody>
     </table>
-    <h2 class="sale-items">You saved money on this robots:</h2>
+
+    <h2 class="sale-items">You save money on these robots:</h2>
     <table>
       <thead>
         <tr>
@@ -41,7 +42,7 @@
             {{robot.head.title}}
           </td>
           <td class="cost">
-            {{robot.cost}}
+            {{robot.cost | currency('$')}}
           </td>
         </tr>
       </tbody>
@@ -50,7 +51,6 @@
 </template>
 
 <script>
-
 import { mapState, mapGetters } from 'vuex';
 
 export default {
@@ -63,18 +63,18 @@ export default {
 </script>
 
 <style scoped>
-  td, th {
-    padding: 5px;
-  }
-  .robot-title {
-    text-align: left;
-    padding-right: 200px;
-  }
-  .cost {
-    text-align: right;
-  }
-
-  .sale-items {
+td,
+th {
+  padding: 5px;
+}
+.robot-title {
+  text-align: left;
+  padding-right: 200px;
+}
+.cost {
+  text-align: right;
+}
+.sale-items {
   margin-top: 50px;
   font-size: 18px;
   color: red;
