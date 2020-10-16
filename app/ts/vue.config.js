@@ -1,15 +1,15 @@
 module.exports = {
   configureWebpack(config) {
     config.module.rules.push({
-        test: /\.coffee$/,
-        use: ['coffee-loader']
-      });
+      test: /\.coffee$/,
+      use: ['coffee-loader'],
+    });
     config.module.rules.push({
       test: /\.ts$/,
-      loader: "ts-loader",
+      loader: 'ts-loader',
       options: {
-        appendTsSuffixTo: [/\.vue$/]
-      }
+        appendTsSuffixTo: [/\.vue$/],
+      },
     });
   },
   devServer: {

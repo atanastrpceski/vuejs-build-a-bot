@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { Module } from 'vuex';
 
-export default {
+const robotsModule: Module<any, any> = {
   namespaced: true,
   state: {
     cart: [],
@@ -20,12 +21,12 @@ export default {
     },
   },
   actions: {
-    getParts( { commit}: {commit: Function}) {
+    getParts({ commit }: {commit: any}) {
       axios.get('/api/parts')
         .then((result) => commit('updateParts', result.data))
         .catch(console.error);
     },
-    addRobotToCart( { commit, state }: {commit: Function, state: Function}, robot: any) {
+    addRobotToCart({ commit, state }: {commit: any, state: any}, robot: any) {
       const cart = [...state.cart, robot];
       return axios.post('/api/cart', cart)
         .then(() => commit('addRobotToCart', robot))
@@ -33,3 +34,5 @@ export default {
     },
   },
 };
+
+export default robotsModule;

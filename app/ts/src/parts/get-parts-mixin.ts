@@ -1,18 +1,17 @@
-import { mapState, mapActions } from 'vuex';
+import Vue from 'vue';
 
-export default {
+export default Vue.extend({
   created() {
-    this.getParts();
+    this.$store.dispatch('robots/getParts');
   },
-  computed: mapState({
-    parts: ({ robots }) => robots.parts || {
-      heads: [],
-      arms: [],
-      torsos: [],
-      bases: [],
+  computed: {
+    parts() {
+      return this.$store.state.robots.parts || {
+        heads: [],
+        arms: [],
+        torsos: [],
+        bases: [],
+      };
     },
-  }),
-  methods: {
-    ...mapActions('robots', ['getParts']),
   },
-};
+});

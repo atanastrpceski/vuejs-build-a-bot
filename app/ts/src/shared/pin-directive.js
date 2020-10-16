@@ -1,6 +1,8 @@
-export default function (el, binding) {
+import Vue from 'vue';
+
+Vue.directive('pin', (el, binding) => {
   Object.keys(binding.value).forEach((position) => {
     el.style[position] = binding.value[position];
     el.style.position = 'absolute';
   });
-}
+});

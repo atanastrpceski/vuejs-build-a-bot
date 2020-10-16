@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { Commit } from 'vuex';
+import { Module } from 'vuex';
 
-export default {
+const usersModule: Module<any, any> = {
   state: {
     user: null,
   },
@@ -13,10 +13,12 @@ export default {
   getters: {
   },
   actions: {
-    signIn({ commit }: {commit: Function}) {
+    signIn({ commit }: {commit: any}) {
       axios.post('/api/sign-in')
         .then((result) => commit('updateCurrentUser', result.data))
         .catch(console.error);
     },
   },
 };
+
+export default usersModule;
